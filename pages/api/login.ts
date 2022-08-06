@@ -8,14 +8,20 @@ let redis = new Redis(process.env.REDIS_URL!);
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<string>
+  res: NextApiResponse
 ) {
   if (!req.method || req.method !== "POST") {
     return res.status(405);
   }
   const id = randomUUID();
-  await redis.hset(`user:${req.body.username}`, 'users', JSON.stringify({ password: req.body.password }));
-  await redis.hset(`rid:${id}`, 'users', JSON.stringify({ user: req.body.username }))
+  const user = await redis.hget(req.body.username, 'users');
+  if (!user) {
+    return res.status(401);
+  }
+  if (JSON.parse(user)!.password !== req.body.password) {
+    return res.status(401);
+  }
+  await redis.hset(`rid:${id}`, { user: req.body.username })
   setCookie('rid', id, { req, res });
   res.status(200).json(id);
 }
