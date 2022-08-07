@@ -103,7 +103,7 @@ const Dashboard: NextPage = function () {
     <div className="flex flex-col gap-x-10 p-10 font-bold min-h-screen text-white border border-white bg-black/40">
       <h1 className="text-5xl text-white">Welcome, {username}!</h1>
       <img
-        src="https://media.istockphoto.com/photos/green-plants-wall-picture-id175450225?b=1&k=20&m=175450225&s=170667a&w=0&h=M9uSLWjlaLd96HJA-LZRVvkACrnMi7y9WQygiSdfoVU="
+        src="/backround.png"
         className="-z-20 top-0 left-0 opacity-75 fixed h-screen w-screen"
       />
       {modalContent ? (

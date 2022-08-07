@@ -5,10 +5,10 @@ import styles from "../styles/Home.module.css";
 const Home: NextPage = () => {
   return (
     <div
-      className={`min-w-screen max-w-screen min-h-screen max-h-screen ${styles["bg"]} grid grid-rows-[max-content_1fr]`}
+      className={`min-w-screen max-w-screen min-h-screen max-h-screen ${styles["bg"]} grid grid-rows-[max-content_1fr] bg-black/40`}
     >
       <img
-        src="https://media.istockphoto.com/photos/green-plants-wall-picture-id175450225?b=1&k=20&m=175450225&s=170667a&w=0&h=M9uSLWjlaLd96HJA-LZRVvkACrnMi7y9WQygiSdfoVU="
+        src="/backround.png"
         className="-z-20 top-0 left-0 opacity-75 fixed h-screen w-screen"
       />
       <Head>
@@ -34,7 +34,6 @@ const Home: NextPage = () => {
           </ul>
         </nav>
       </header>
-    
 
       <main className="flex flex-col justify-center align-middle text-gray-200 pl-10 mb-[25%] ">
         <h1 className="text-6xl"> Plantify</h1>
@@ -58,11 +57,6 @@ const Home: NextPage = () => {
             <a href="/register">REGISTER</a>
           </button>
         </div>
-        {/* <ul>
-          <li>Is this usefu</li>
-          <li></li>
-          <li></li>
-        </ul> */}
       </main>
     </div>
   );
