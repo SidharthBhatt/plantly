@@ -15,6 +15,11 @@ export default async function handler(
   if (!user) {
     return res.status(401);
   }
-  const plants = await redis.lrange("plants", 0, -1);
-  res.status(200).send(plants.map((plant) => JSON.parse(plant)));
+  console.log(user);
+  const userQ = await redis.hget(`aq:${JSON.parse(user).user}`, "true");
+  if (!userQ) {
+    return res.status(200).json(false);
+  }
+  await redis.hdel(`aq:${JSON.parse(user).user}`, "true");
+  res.status(200).json(true);
 }

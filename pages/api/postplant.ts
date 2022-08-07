@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Redis from "ioredis";
 
-let redis = new Redis(process.env.REDIS_URL!);
+let redis = new Redis();
 
 export default async function handler(
   req: NextApiRequest,
@@ -20,6 +20,7 @@ export default async function handler(
     description: req.body.description,
     image: req.body.image,
     owner: req.body.owner,
+    // geo: req.body.geo,
   };
   await redis.rpush("plants", JSON.stringify(post));
   res.status(200).send(post);

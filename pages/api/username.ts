@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Redis from "ioredis";
 
-let redis = new Redis(process.env.REDIS_URL!);
+let redis = new Redis();
 
 export default async function handler(
   req: NextApiRequest,

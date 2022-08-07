@@ -4,7 +4,7 @@ import Redis from "ioredis";
 import { setCookie } from "cookies-next";
 import { randomUUID } from "crypto";
 
-let redis = new Redis(process.env.REDIS_URL!);
+let redis = new Redis(6379);
 
 export default async function handler(
   req: NextApiRequest,

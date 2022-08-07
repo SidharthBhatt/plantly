@@ -34,15 +34,16 @@ const Login: NextPage = () => {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({ username, password }),
+            }).then(() => {
+              window.location.pathname = "/dashboard";
             });
-            window.location.pathname = "/dashboard";
           }}
           className="w-full text-center mt-3 bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 text-white"
         >
           Login
         </button>
         <h1>
-          Don't have an account?
+          Don't have an account?{' '}
           <a className="text-sky-600" href="/register">
             Register here!
           </a>

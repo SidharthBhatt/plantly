@@ -8,13 +8,15 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (!req.method || req.method !== "GET") {
+  if (!req.method || req.method !== "POST") {
     return res.status(405);
   }
   const user = await redis.hget(`rid:${req.cookies.rid}`, "users");
   if (!user) {
     return res.status(401);
   }
-  const plants = await redis.lrange("plants", 0, -1);
-  res.status(200).send(plants.map((plant) => JSON.parse(plant)));
+  await redis.lrem("plants", -1, JSON.stringify(req.body));
+  console.log(req.body);
+  await redis.hset(`aq:${req.body.owner}`, "true", "users");
+  res.status(200).json(true);
 }
