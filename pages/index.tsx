@@ -3,6 +3,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Typer from "../components/Typer";
 import styles from "../styles/Home.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 const Home: NextPage = () => {
   const [username, setUsername] = useState("");
@@ -98,9 +100,12 @@ const Home: NextPage = () => {
             <a href="/register">REGISTER</a>
           </button>
         </div>
+        <FontAwesomeIcon icon={faChevronDown} className="absolute bottom-4 left-[calc(50%-1rem)] w-8 cursor-pointer" onClick={() => {
+          document.getElementById('plants')!.scrollIntoView({ behavior: 'smooth' });
+        }} />
       </main>
 
-      <section className="min-h-screen bg-black/40">
+      <section id="plants" className="min-h-screen bg-black/40">
         <h2 className="text-center text-4xl font-bold text-white mb-6">
           Plants
         </h2>
