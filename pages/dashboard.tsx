@@ -1,5 +1,4 @@
-import { getCookie } from "cookies-next";
-import { GetServerSideProps, type NextPage } from "next";
+import { type NextPage } from "next";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 
 const getLocation = (): Promise<string> => {
