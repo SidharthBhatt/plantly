@@ -9,11 +9,11 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (!req.method || req.method !== "GET") {
-    return res.status(405);
+    return res.status(405).json(false);
   }
   const user = await redis.hget(`rid:${req.cookies.rid}`, "users");
   if (!user) {
-    return res.status(401);
+    return res.status(401).json(false);
   }
   res.status(200).json(JSON.parse(user).user);
 }
