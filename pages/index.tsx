@@ -3,8 +3,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Typer from "../components/Typer";
 import styles from "../styles/Home.module.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const Home: NextPage = () => {
   const [username, setUsername] = useState("");
@@ -87,7 +87,7 @@ const Home: NextPage = () => {
             onClick={() => {
               location.pathname = "/login";
             }}
-            className="w-40 bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            className="w-40 bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"
           >
             <a href="/login">LOGIN</a>
           </button>
@@ -95,14 +95,20 @@ const Home: NextPage = () => {
             onClick={() => {
               location.pathname = "/register";
             }}
-            className="w-40 bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            className="w-40 bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"
           >
             <a href="/register">REGISTER</a>
           </button>
         </div>
-        <FontAwesomeIcon icon={faChevronDown} className="absolute bottom-4 left-[calc(50%-1rem)] w-8 cursor-pointer" onClick={() => {
-          document.getElementById('plants')!.scrollIntoView({ behavior: 'smooth' });
-        }} />
+        <FontAwesomeIcon
+          icon={faChevronDown}
+          className="absolute bottom-4 left-[calc(50%-1rem)] w-8 cursor-pointer"
+          onClick={() => {
+            document
+              .getElementById("plants")!
+              .scrollIntoView({ behavior: "smooth" });
+          }}
+        />
       </main>
 
       <section id="plants" className="min-h-screen bg-black/40">
@@ -110,7 +116,7 @@ const Home: NextPage = () => {
           Marketplace
         </h2>
         <h2 className="text-center text-2xl font-bold text-white mb-6">
-          Sign in or register to post! 
+          Sign in or register to post!
         </h2>
         <div className="justify-center flex flex-wrap gap-5 p-6">
           {plants.length > 0 ? (
@@ -118,7 +124,7 @@ const Home: NextPage = () => {
               return (
                 <div
                   key={index}
-                  className="text-black relative block p-6 pb-16 basis-[240px] bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                  className="text-black relative block p-6 pb-16 basis-[240px] bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100"
                 >
                   <img className="w-[130px] h-[130px] mb-2" src={plant.image} />
                   <h2 className="text-2xl">{plant.name}</h2>
