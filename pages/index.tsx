@@ -34,6 +34,7 @@ const Home: NextPage = () => {
           </ul>
         </nav>
       </header>
+    
 
       <main className="flex flex-col justify-center align-middle text-gray-200 pl-10 mb-[25%] ">
         <h1 className="text-6xl"> Plantify</h1>
@@ -57,6 +58,11 @@ const Home: NextPage = () => {
             <a href="/register">REGISTER</a>
           </button>
         </div>
+        {/* <ul>
+          <li>Is this usefu</li>
+          <li></li>
+          <li></li>
+        </ul> */}
       </main>
     </div>
   );
