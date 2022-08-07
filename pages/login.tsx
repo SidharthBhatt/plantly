@@ -43,7 +43,7 @@ const Login: NextPage = () => {
           Login
         </button>
         <h1>
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <a className="text-sky-600" href="/register">
             Register here!
           </a>

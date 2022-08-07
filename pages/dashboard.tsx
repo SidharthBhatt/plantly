@@ -118,6 +118,14 @@ const Dashboard: NextPage = function () {
         </div>
       ) : null}
       <main className="flex flex-col text-left text-5xl font-bold gap-y-7 pl-0 p-5 h-max">
+        <span
+          className="absolute top-3 text-xl right-3 cursor-pointer"
+          onClick={() => {
+            fetch("/api/logout");
+          }}
+        >
+          Logout
+        </span>
         <section className="p-5 h-max">
           <div>
             <h1 className="font-bold text-2xl ">
@@ -210,7 +218,6 @@ const Dashboard: NextPage = function () {
                           })
                         );
                       });
-                      debugger;
                       setModalContent(
                         <>
                           <a href={`mailto:${plant.owner}`}>Email</a>
