@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import Typer from "../components/Typer";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -65,7 +66,19 @@ const Home: NextPage = () => {
       <main className="flex flex-col justify-center align-middle text-gray-200 pl-10 min-h-screen bg-black/40">
         <h1 className="text-6xl"> Plantify</h1>
         <p className="text-2xl text-white mt-5">
-          Sign in or register to rent out plants!
+          Sign in or register to{" "}
+          <Typer
+            typeSpeed={50}
+            backSpeed={40}
+            backDelay={1000}
+            loop
+            strings={[
+              "rent out plants!",
+              "donate extra flowers.",
+              "earn money off gardening!",
+            ]}
+            smartBackspace
+          />
         </p>
         <div className="flex flex-row flex-nowrap mt-5">
           <button
@@ -88,7 +101,9 @@ const Home: NextPage = () => {
       </main>
 
       <section className="min-h-screen bg-black/40">
-        <h2 className="text-center text-4xl font-bold text-white mb-6">Plants</h2>
+        <h2 className="text-center text-4xl font-bold text-white mb-6">
+          Plants
+        </h2>
         <div className="justify-center flex flex-wrap gap-5 p-6">
           {plants.length > 0 ? (
             plants.map((plant, index) => {
@@ -99,7 +114,9 @@ const Home: NextPage = () => {
                 >
                   <img className="w-[130px] h-[130px] mb-2" src={plant.image} />
                   <h2 className="text-2xl">{plant.name}</h2>
-                  <p className="text-lg mt-2 line-clamp-3">{plant.description}</p>
+                  <p className="text-lg mt-2 line-clamp-3">
+                    {plant.description}
+                  </p>
                 </div>
               );
             })
