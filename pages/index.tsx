@@ -107,7 +107,10 @@ const Home: NextPage = () => {
 
       <section id="plants" className="min-h-screen bg-black/40">
         <h2 className="text-center text-4xl font-bold text-white mb-6">
-          Plants
+          Marketplace
+        </h2>
+        <h2 className="text-center text-2xl font-bold text-white mb-6">
+          Sign in or register to post! 
         </h2>
         <div className="justify-center flex flex-wrap gap-5 p-6">
           {plants.length > 0 ? (

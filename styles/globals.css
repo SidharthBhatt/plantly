@@ -19,16 +19,6 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}
-
 .bg {
   background-image: url("https://sisterdiscodotcom.files.wordpress.com/2013/06/nature-houses-doors-vines-hd-wallpaper.jpg");
 }
