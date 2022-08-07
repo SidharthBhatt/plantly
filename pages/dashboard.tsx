@@ -206,7 +206,7 @@ const Dashboard: NextPage = function () {
                   key={index}
                   className="text-black relative block p-6 pb-16 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
                 >
-                  <img className="w-[130px] h-[130px] mt-2" src={plant.image} />
+                  <img className="w-[130px] h-[130px] mb-2" src={plant.image} />
                   <h2 className="text-2xl">{plant.name}</h2>
                   <p className="text-lg mt-2">{plant.description}</p>
                   <button

@@ -5,6 +5,15 @@ import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [username, setUsername] = useState("");
+  const [plants, setPlants] = useState<any[]>([]);
+
+  useEffect(function () {
+    fetch("/api/plants")
+      .then((response) => response.json())
+      .then((json) => {
+        setPlants(json);
+      });
+  }, []);
 
   useEffect(function () {
     fetch("/api/username")
@@ -18,7 +27,7 @@ const Home: NextPage = () => {
 
   return (
     <div
-      className={`min-w-screen max-w-screen min-h-screen max-h-screen ${styles["bg"]} grid grid-rows-[max-content_1fr] bg-black/40`}
+      className={`min-w-screen max-w-screen min-h-screen max-h-screen ${styles["bg"]} grid grid-rows-[max-content_1fr]`}
     >
       <img
         src="/backround.png"
@@ -53,7 +62,7 @@ const Home: NextPage = () => {
         </nav>
       </header>
 
-      <main className="flex flex-col justify-center align-middle text-gray-200 pl-10">
+      <main className="flex flex-col justify-center align-middle text-gray-200 pl-10 min-h-screen bg-black/40">
         <h1 className="text-6xl"> Plantify</h1>
         <p className="text-2xl text-white mt-5">
           Sign in or register to rent out plants!
@@ -77,6 +86,28 @@ const Home: NextPage = () => {
           </button>
         </div>
       </main>
+
+      <section className="min-h-screen bg-black/40">
+        <h2 className="text-center text-4xl font-bold text-white mb-6">Plants</h2>
+        <div className="justify-center flex flex-wrap gap-5 p-6">
+          {plants.length > 0 ? (
+            plants.map((plant, index) => {
+              return (
+                <div
+                  key={index}
+                  className="text-black relative block p-6 pb-16 basis-[240px] bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                >
+                  <img className="w-[130px] h-[130px] mb-2" src={plant.image} />
+                  <h2 className="text-2xl">{plant.name}</h2>
+                  <p className="text-lg mt-2 line-clamp-3">{plant.description}</p>
+                </div>
+              );
+            })
+          ) : (
+            <div className="text-2xl -mt-8 font-medium">No posts found</div>
+          )}
+        </div>
+      </section>
     </div>
   );
 };

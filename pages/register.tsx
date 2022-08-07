@@ -6,7 +6,7 @@ const Register: NextPage = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="flex justify-center items-center min-w-screen max-w-screen min-h-screen max-h-screen text-white">
+    <div className="flex justify-center items-center min-w-screen max-w-screen min-h-screen max-h-screen text-white bg-black/40">
       <img
         src="/backround.png"
         className="-z-20 top-0 left-0 opacity-75 fixed h-screen w-screen"

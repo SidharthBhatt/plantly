@@ -6,11 +6,11 @@ const Login: NextPage = () => {
   const [password, setPassword] = useState("");
   return (
     <div className="flex justify-center items-center min-w-screen max-w-screen min-h-screen max-h-screen bg-black/40">
-       <img
+      <img
         src="/backround.png"
         className="-z-20 top-0 left-0 opacity-75 fixed h-screen w-screen"
       />
-      <main className="p-5 border-2 border-white rounded-md"> 
+      <main className="p-5 border-2 border-white rounded-md">
         <h2 className="text-3xl text-white">Login</h2>
         <input
           type="text"
@@ -46,8 +46,8 @@ const Login: NextPage = () => {
         >
           Login
         </button>
-        <h1 className = "text-white">
-          Don&apos;t have an account?{' '}
+        <h1 className="text-white">
+          Don&apos;t have an account?{" "}
           <a className="text-blue-300 " href="/register">
             Register here!
           </a>
