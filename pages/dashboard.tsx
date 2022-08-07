@@ -1,4 +1,5 @@
-import { type NextPage } from "next";
+import { getCookie } from "cookies-next";
+import { GetServerSideProps, type NextPage } from "next";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 
 const getLocation = (): Promise<string> => {
@@ -61,6 +62,7 @@ const Dashboard: NextPage = function () {
   useEffect(function () {
     fetch("/api/username")
       .then((response) => {
+        console.log(response)
         return response.json();
       })
       .then((json) => {
@@ -119,7 +121,7 @@ const Dashboard: NextPage = function () {
       ) : null}
       <main className="flex flex-col text-left text-5xl font-bold gap-y-7 pl-0 p-5 h-max">
         <span
-          className="absolute top-3 text-xl right-3 cursor-pointer"
+          className="absolute top-3 text-xl right-3 cursor-pointer select-none"
           onClick={() => {
             fetch("/api/logout");
           }}
@@ -128,7 +130,7 @@ const Dashboard: NextPage = function () {
         </span>
         <section className="p-5 h-max">
           <div>
-            <h1 className="font-bold text-2xl ">
+            <h1 className="font-semibold text-2xl">
               To post, enter the name, description, and the image url of the
               plant
             </h1>

@@ -13,6 +13,6 @@ export default async function handler(
     return res.status(405);
   }
   await redis.hdel(`rid:${req.cookies.rid}`, "users");
-  deleteCookie("rid");
+  deleteCookie("rid", { req, res });
   res.status(200).json(true);
 }
