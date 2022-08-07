@@ -2,7 +2,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Redis from "ioredis";
 
-let redis = new Redis();
+let redis = new Redis({
+    host: "https://e97a-65-57-82-58.ngrok.io/",
+  });
 
 export default async function handler(
   req: NextApiRequest,

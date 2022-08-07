@@ -2,7 +2,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Redis from "ioredis";
 
-let redis = new Redis();
+let redis = new Redis({
+  host: "https://e97a-65-57-82-58.ngrok.io/",
+});
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,7 +13,7 @@ export default async function handler(
   if (!req.method || req.method !== "GET") {
     return res.status(405);
   }
-  const user = await redis.hget(`rid:${req.cookies.rid}`, 'users');
+  const user = await redis.hget(`rid:${req.cookies.rid}`, "users");
   if (!user) {
     return res.status(401);
   }
