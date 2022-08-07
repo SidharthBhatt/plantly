@@ -6,9 +6,13 @@ const Register: NextPage = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="flex justify-center items-center min-w-screen max-w-screen min-h-screen max-h-screen bg-black/40">
-      <main className="p-5 border-2 border-black rounded-md">
-        <h2 className="text-3xl">Register</h2>
+    <div className="flex justify-center items-center min-w-screen max-w-screen min-h-screen max-h-screen text-white">
+      <img
+        src="/backround.png"
+        className="-z-20 top-0 left-0 opacity-75 fixed h-screen w-screen"
+      />
+      <main className="p-5 border-2 border-white rounded-md">
+        <h2 className="text-3xl text-white">Register</h2>
         <input
           type="text"
           value={username}
